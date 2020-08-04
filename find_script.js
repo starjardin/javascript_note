@@ -1,10 +1,18 @@
+students = ([
+  { name: "Angelina Jolie", member: true },
+  { name: "Eric Jones", member: false },
+  { name: "Paris Hilton", member: true },
+  { name: "Kayne West", member: false },
+  { name: "Bob Ziroll", member: true }
+]);
+
 const findById = (key, value) => {
   return function isStudent(student) {
       return[key] === value;
   }
 };
 
-//const student = students.find(findById('key', 'value'));
+const student = students.find(findById('name', 'Angelina Jolie'));
 
 //Filter exercise
 
@@ -22,7 +30,7 @@ function evensOnly(arr) {
   })
 }
 // test
-console.log(evensOnly([3, 6, 8, 2])); /// [6, 8, 2]
+console.log(evensOnly([3, 6, 8, 2]));
 
 function fiveCharactersOrFewerOnly(arr) {
   return arr.filter(letter => letter.length <= 5)
@@ -41,10 +49,6 @@ console.log(peopleWhoBelongToTheIlluminati([
     { name: "Kayne West", member: false },
     { name: "Bob Ziroll", member: true }
 ]));
-// =>
-//[ { name: 'Angelina Jolie', member: true },
-//  { name: 'Paris Hilton', member: true },
-//  { name: 'Bob Ziroll', member: true } ]
 
 function ofAge(arr){
   return arr.filter(oldEnough => oldEnough.age >= 18)
@@ -57,6 +61,3 @@ console.log(ofAge([
     { name: "Kayne West", age: 16 },
     { name: "Bob Ziroll", age: 100 }
 ])); 
-// => 
-//[ { name: 'Angelina Jolie', age: 80 },
-//  { name: 'Bob Ziroll', age: 100 } ]
