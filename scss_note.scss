@@ -1,0 +1,23 @@
+this is an array of objects
+$fonts : (
+  // you can insert all of your fonts here
+  // Key key name can be repeated but the value must change.
+  (family: "Lato", weight: 400, style: italic),
+  (family: "Lato", weight: 400, style: normal),
+  (family: "Lato", weight: 700, style: oblique),
+  (family: "Roboto", weight: 500),
+  (family: "Roboto", weight: 600),
+);
+
+// Looping through of an array objects
+@each $font in $fonts {
+  // map get gets the name value pairs (each single object, key name to get the value)
+  font-family: map-get($font , weight);
+}
+
+// Using if statement for 
+@each $font in $fonts {
+  @if map-get(weight = bold) {
+    font-family: map-get($font , weight);
+  }
+};
