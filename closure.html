@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background-color: beige;
+    }
+
+    dt {
+      padding-bottom: 2rem;
+    }
+
+    .outer {
+      opacity: 0;
+    }
+
+    .outer.open {
+      opacity: 1;
+    }
+
+    .inner {
+      width: 40rem;
+      height: 20rem;
+      background-color: burlywood;
+      position: absolute;
+      top: 3rem;
+      left: 25%;
+    }
+    </style>
+</head>
+
+<body>
+  <header>
+    <h2>Closure</h2>
+  </header>
+  <main>
+    <dfn>
+      <dt>Closure</dt>
+      <dd>Closure are the ability for a child function (or an inner function) to access variables from a higher level scope, even after the functions have been called or closed.</dd>
+    </dfn>
+    <button>button</button>
+    <div class="outer">
+      <div class="inner"></div>
+    </div>
+  </main>
+  <script>
+    const btn = document.querySelector('button');
+    const inner = document.querySelector('.inner');
+    const outer = document.querySelector('.outer');
+    btn.addEventListener('click', e => {
+      outer.classList.add('open');
+      inner.innerHTML = `<p>closure is fun</p>`
+    });
+
+    const closeModal = e => {
+      const hello = e.target.matches('.inner');
+      console.log(hello)
+      if (hello) {
+        outer.classList.remove('open')
+      }
+    }
+
+    window.addEventListener('click', closeModal);
+
+
+    function createGame(gameName) {
+      let score = 0;
+      return function win() {
+        score++;
+        return `Your name ${gameName} score is ${score}`
+      }
+    }
+    const hockey = createGame('Hockey');
+    console.log(hockey)
+    // console.log(hockey());
+
+    function makeId(id) {
+      let cardId = 9865641;
+      return function carParkId () {
+        return `Youur id is ${cardId} and ${id}`
+      }
+    }
+    const hello = makeId("89488949");
+    console.log(hello())
+  </script>
+</body>
+
+</html>
