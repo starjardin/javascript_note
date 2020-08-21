@@ -36,10 +36,25 @@ function Gallery(gallery) {
         openModal();
     }
 
+    function handleEscapeKey(e) {
+      if (e.key === "Escape") {
+        closeModal();
+      }
+    }
+
     images.forEach(image => {
         image.addEventListener('click', e => showImage(e.currentTarget));
-    })
+    });
 
+    //function to show next images
+    function showNextImage() {
+      showImage(currentImage.nextElementSibling || gallery.firstElementChild)
+    }
+    
+
+    modal.addEventListener("click", handleClickOutside);
+    window.addEventListener('keydown', handleEscapeKey);
+    prevButton.addEventListener("click", showNextImage);
 }
 
 const gallery1 = Gallery(document.querySelector(".gallery1"));

@@ -1,0 +1,58 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .go {
+    margin: 5rem;
+    padding: 5rem;
+    cursor: pointer;
+  }
+</style>
+<body>
+  <div class="go">clicl me</div>
+  <script>
+    const go =document.querySelector('.go');
+    go.addEventListener('click', function() {
+      const el = e.currentTarget;
+    })
+  </script>
+  <script>
+    function makePizza() {
+      const makePromise = new Promise(function(resolve, reject) {
+        //wait 
+        setTimeout(function () {
+
+        })
+      })
+      return makePromise;
+    };
+
+    function makePizzas() {
+      return new Promise(function(resolve, reject) {
+        //wait 
+        setTimeout(function () {
+          resolve(`Here is your pizza 🍕 with toppings`)
+        })
+      })
+    };
+
+  //When it's finished.
+  const youPizza = makePizza.then(function (pizza) {
+      return(["ham", "hot pepper"]);
+    }).then(function(pizza) {
+      console.log(pizza)
+    });
+    
+
+    const firstPizza = Promise.race([pizza]);
+      firstPizza.then(pizza => {
+        console.log("Here is you first pizza, you must be hungry");
+        console.log(pizza);
+    })
+   </script>
+</body>
+</html>
